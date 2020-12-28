@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public float speed = 10;
+
     private void FixedUpdate()
     {
        // Rigidbodyを取得
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
        // ベクトルに変換
        Vector3 vec = new Vector3(x, 0, z);
+
+       vec = vec * speed;
 
        // 力を加える
        rigidbody.AddForce(vec);
