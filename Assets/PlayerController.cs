@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed = 10;
+    public float blowSpeed = 1000;
 
     private void FixedUpdate()
     {
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
             // プレイヤーを吹き飛ばす処理
             Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.AddForce(contact.normal * 1000);
+            rigidbody.AddForce(contact.normal * blowSpeed);
         }
 
     }
