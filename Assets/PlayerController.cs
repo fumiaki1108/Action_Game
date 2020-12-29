@@ -25,4 +25,21 @@ public class PlayerController : MonoBehaviour
        rigidbody.AddForce(vec);
     }
 
+    // 衝突したときに呼ばれる処理
+    void OnCollisionEnter(Collision collision)
+    {
+
+        // Enemyと衝突したか？
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // 衝突情報を取得
+            ContactPoint contact = collision.contacts[0];
+
+            // プレイヤーを吹き飛ばす処理
+            Rigidbody rigidbody = GetComponent<Rigidbody>();
+            rigidbody.AddForce(contact.normal * 1000);
+        }
+
+    }
+
 }
